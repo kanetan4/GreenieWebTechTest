@@ -1,13 +1,18 @@
 import psutil
 import matplotlib.pyplot as plt
+import time
 
 def get_power_consumption(app_name):
     # Get the process ID of the application
     pid = None
-    for p in psutil.process_iter(['pid', 'name'],1):
-        if app_name.lower() in p.info['name'].lower():
-            pid = p.info['pid']
+    for i in range(10):
+        for p in psutil.process_iter(['pid', 'name'], 5):
+            if app_name.lower() in p.info['name'].lower():
+                pid = p.info['pid']
+                break
+        if pid is not None:
             break
+        time.sleep(0.1)
 
     if pid is None:
         print(f"No process found with the name '{app_name}'.")
@@ -19,6 +24,7 @@ def get_power_consumption(app_name):
         mem_info = process.memory_info()
         power_consumption = cpu_percent * mem_info.rss / 1000  # mW
         return power_consumption
+
 
 # User input of applications to compare
 choice = ""

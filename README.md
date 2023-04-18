@@ -18,7 +18,9 @@ You can install the psutil and matplotlib library using pip:
 5. The code will measure the power consumption of each application for a specified duration of 5 seconds.
 6. The code will display a graph comparing the power consumption of each application.
 
-Note: The current code may not measure power consumption of apps that are running in the background or not performing any activities.
+## Note: 
+1. The current code may not measure power consumption of apps that are running in the background or not performing any activities.
+2. Based on testing, the applications have to be open and visible on the screen for the power to be captured, running the background would lead to no power consumption detected
 
 ## Functions
 1. get_power_consumption(app_name) - returns the power consumption of a given application.

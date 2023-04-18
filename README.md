@@ -1,29 +1,40 @@
-# Power Consumption Estimation of a Single Application
-This is a Python program that uses the psutil library to estimate the power consumption of a single application on a computer.
+# Power Consumption Estimation of Applications
+This is a Python program that uses the psutil library to estimate the power consumption of applications on a computer.
 
 ## Requirements
 Python 3.x
 psutil library (version 5.8.0 or later)
-You can install the psutil library using pip:
+You can install the psutil and matplotlib library using pip:
 
 ```pip install psutil```
+```pip install matplotlib```
 
 ## Usage
-Open a command prompt or terminal.
-Navigate to the directory where the power_consumption.py file is located.
-Run the command python power_consumption.py your_application_name, where your_application_name is the name of the application you want to measure the power consumption of.
-For example, to measure the power consumption of Google Chrome, you can run:
+Run the Python code.
+Enter the names of the applications you want to compare. You can add up to two applications to compare. Enter "-1" to break.
+The code will measure the power consumption of each application for a specified duration of 5 seconds.
+The code will display a graph comparing the power consumption of each application.
 
-```python power_consumption.py chrome```
+Note: The current code may not measure power consumption of apps that are running in the background or not performing any activities.
+
+## Functions
+get_power_consumption(app_name) - returns the power consumption of a given application.
+measure_power_consumption(app_names, duration) - measures the power consumption of a list of applications for a specified duration and displays the results as a graph.
 
 ## How it Works
 The program uses psutil to find the process ID of the specified application and then estimates its power consumption based on its CPU usage and memory usage. The estimation is calculated as follows:
 
-```power_consumption = cpu_percent * memory_usage / 1000  # mW```
+```power_consumption = cpu_percent * mem_info.rss / 1000  # mW```
 
 Where cpu_percent is the CPU usage of the process as a percentage, and memory_usage is the memory usage of the process in bytes.
 
 Note that this is just an estimation and may not be very accurate. The actual power consumption of the application may vary depending on the hardware and operating system being used.
 
-## License
-This program is licensed under the MIT License. See the LICENSE file for details.
+## Example Code
+2 Application Comparison
+Enter an app to compare (-1 to break): Google Chrome
+Enter an app to compare (-1 to break): Spotify
+
+1 Application 
+Enter an app to compare (-1 to break): Google Chrome
+Enter an app to compare (-1 to break): -1

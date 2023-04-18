@@ -7,6 +7,7 @@ psutil library (version 5.8.0 or later)
 You can install the psutil and matplotlib library using pip:
 
 ```pip install psutil```
+
 ```pip install matplotlib```
 
 ## Usage
@@ -36,9 +37,11 @@ Note that this is just an estimation and may not be very accurate. The actual po
 2 Application Comparison
 
 ```Enter an app to compare (-1 to break): Google Chrome```
+
 ```Enter an app to compare (-1 to break): Spotify```
 
 1 Application 
 
 ```Enter an app to compare (-1 to break): Google Chrome```
+
 ```Enter an app to compare (-1 to break): -1```
